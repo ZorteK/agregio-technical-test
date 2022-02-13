@@ -1,0 +1,42 @@
+type Query{
+    offer: [Offer]!
+}
+
+type Offer {
+    type: OfferType!
+    offerBlocs: [OfferBlocs]!
+}
+
+type OfferBlocs {
+    timeslot: TimeSlot!,
+    floorPrice: Float!
+    availableBlocs: [ProducedBloc]
+}
+
+type ProducedBloc {
+    name:String!
+    energyType: EnergyType
+    quantity:Float!
+    timeSlot : TimeSlot!
+}
+
+enum EnergyType {
+    ELECTRICITY
+    WATER
+    WIND
+}
+
+enum TimeSlot {
+    SLOT_0_3
+    SLOT_3_6
+    SLOT_6_9
+    SLOT_9_12
+    SLOT_12_15
+    SLOT_15_18
+    SLOT_18_21
+    SLOT_21_24
+}
+
+enum OfferType {
+    PRIMARY, SECONDARY, FAST
+}
